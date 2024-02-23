@@ -1,7 +1,9 @@
 # Flight booker
 
 This is a one-way flight booker project which focuses on some more advanced forms.
+
 [From Odin:](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker)
+A typical airline booking flow looks like this:
 ```
 1. Enter desired dates / airports and click “Search”
 2. Choose from among a list of available flights
