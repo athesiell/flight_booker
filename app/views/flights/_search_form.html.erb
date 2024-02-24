@@ -1,0 +1,33 @@
+<%= form_with method: :get do |form| %>
+  <div class="field">
+    <%= form.label :departure_airport_id, 'Departure Airport:' %>
+    <%= form.select :departure_airport_id, @airports %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arrival_airport_id, 'Arrival Airport:' %>
+    <%= form.select :arrival_airport_id, @airports %>
+  </div>
+
+  <div class="field">
+    <%= form.label :passenger_count, 'Number of passengers:' %>
+    <%= form.select :passenger_count, (1..4) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flight_date, 'Flight date:' %>
+    <div>
+      <%= select_year(Date.today, { start_year: 2024, end_year: 2025 }, { id: 'flight_date_year' }) %>
+    </div>
+    <div>
+      <%= select_month(Date.today, {}, { id: 'flight_date_month'}) %>
+    </div>
+    <div>
+      <%= select_day(Date.today, {}, { id: 'flight_date_day' }) %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.submit 'Search flights' %>
+  </div>
+<% end %>
