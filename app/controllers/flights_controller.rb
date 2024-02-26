@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
   def index
-    @flights = Flight.all
-    @airports = Airport.all.map { |a| [a.airport, a.id] }
-    @passengers = (1..4).to_a
+    @flights = Flight.where(departure_airport_id: params[:departure_airport_id])
+                      .and(Flight.where(arrival_airport_id: params[:arrival_airport_id]))
+                      .select { |flight| flight.start.to_date.strftime('%d/%m/%Y') == params[:start] }
   end
 end
