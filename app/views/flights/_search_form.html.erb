@@ -1,11 +1,11 @@
 <%= form_with method: :get do |form| %>
-  <%= form.label :departure_airport_id, 'Departure airport:' %>
-  <%= form.collection_select :departure_airport_id, Airport.order(:airport), :id, :airport, { selected: params[:departure_airport_id], include_blank: true } , { required: true } %>
-  <%= form.label :arrival_airport_id, 'Arrival airport:' %>
-  <%= form.collection_select :arrival_airport_id, Airport.order(:airport), :id, :airport, { selected: params[:arrival_airport_id], include_blank: true }, { required: true } %>
-  <%= form.label :passengers, 'Number of passengers:' %>
-  <%= form.select :passengers, [1, 2, 3, 4], { selected: params[:passengers], include_blank: true }, { required: true } %>
-  <%= form.label :start, 'Flight date:' %>
-  <%= form.select :start, Flight.order(:start).pluck(:start).map {|date| date.to_date.strftime('%d/%m/%Y')}.uniq, { selected: params[:start], include_blank: true }, { required: true } %>
+  <%= form.label :departure_airport_id, 'Departure airport:' %><br>
+  <%= form.collection_select :departure_airport_id, Airport.order(:airport), :id, :airport, { selected: params[:departure_airport_id], include_blank: true } , { required: true } %><br><br>
+  <%= form.label :arrival_airport_id, 'Arrival airport:' %><br>
+  <%= form.collection_select :arrival_airport_id, Airport.order(:airport), :id, :airport, { selected: params[:arrival_airport_id], include_blank: true }, { required: true } %><br><br>
+  <%= form.label :passengers, 'Number of passengers:' %><br>
+  <%= form.select :passengers, [1, 2, 3, 4], { selected: params[:passengers], include_blank: true }, { required: true } %><br><br>
+  <%= form.label :start, 'Flight date:' %><br>
+  <%= form.select :start, Flight.order(:start).pluck(:start).map {|date| date.to_date.strftime('%d/%m/%Y')}.uniq, { selected: params[:start], include_blank: true }, { required: true } %><br><br>
   <%= form.submit 'Search' %>
 <% end %>
